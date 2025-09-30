@@ -1,311 +1,549 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sergio Federico Rayo Rodríguez - Desarrollador .NET</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
         }
-        
+
         .card-hover:hover {
             transform: translateY(-5px);
         }
-        
+
         .skill-bar {
             transition: width 1s ease;
         }
+
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(209, 213, 219, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        .nav-glass a {
+            transition: all 0.2s ease;
+        }
+
+        .nav-glass a:hover {
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-button {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(209, 213, 219, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        .mobile-menu {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(209, 213, 219, 0.3);
+            box-shadow: 0 20px 60px 0 rgba(31, 38, 135, 0.3);
+            transform: scale(0.95) translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .mobile-menu.active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .menu-icon {
+            transition: all 0.3s ease;
+        }
+
+        .menu-icon.active .line1 {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-icon.active .line2 {
+            opacity: 0;
+        }
+
+        .menu-icon.active .line3 {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .hero-glass {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            border: 1px solid rgba(209, 213, 219, 0.35);
+            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.25);
+            border-radius: 28px;
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+        }
+
+        .hero-glass:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 30px 80px rgba(31, 38, 135, 0.35);
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .img-frame-glass {
+            background: linear-gradient(135deg, rgba(124, 58, 237, .25), rgba(236, 72, 153, .25));
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            border: 1px solid rgba(209, 213, 219, 0.35);
+            border-radius: 24px;
+        }
+
+        .chip-glass {
+            background: rgba(255, 255, 255, .18);
+            border: 1px solid rgba(209, 213, 219, .35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 14px;
+        }
+
+        .hero-aura {
+            position: absolute;
+            inset: -2px;
+            border-radius: 32px;
+            background: radial-gradient(1200px 400px at 10% 0%, rgba(124, 58, 237, .20), transparent 60%),
+                radial-gradient(900px 500px at 100% 100%, rgba(236, 72, 153, .18), transparent 55%);
+            filter: blur(30px);
+            opacity: .9;
+            pointer-events: none;
+        }
     </style>
 </head>
+
 <body class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
-    <!-- Header/Hero Section -->
     <header class="relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-10"></div>
-        
-        <nav class="container mx-auto px-6 py-6 relative z-10">
-            <div class="flex justify-center items-center">
-                <div class="flex space-x-8">
-                    <a href="#sobre-mi" class="text-gray-700 hover:text-purple-600 transition font-medium">Sobre mí</a>
-                    <a href="#experiencia" class="text-gray-700 hover:text-purple-600 transition font-medium">Experiencia</a>
-                    <a href="#habilidades" class="text-gray-700 hover:text-purple-600 transition font-medium">Habilidades</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-purple-600 transition font-medium">Contacto</a>
+
+        <nav class="hidden md:block absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto">
+            <div class="nav-glass rounded-full px-8 py-4">
+                <div class="flex justify-center items-center space-x-8 text-base">
+                    <a href="#sobre-mi" class="text-gray-700 hover:text-purple-600 font-medium px-3">Sobre mí</a>
+                    <a href="#experiencia" class="text-gray-700 hover:text-purple-600 font-medium px-3">Experiencia</a>
+                    <a href="#habilidades" class="text-gray-700 hover:text-purple-600 font-medium px-3">Habilidades</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-purple-600 font-medium px-3">Contacto</a>
                 </div>
             </div>
         </nav>
-        
+
+        <button id="mobileMenuBtn"
+            class="md:hidden fixed top-4 right-4 z-50 mobile-menu-button rounded-full p-4 w-14 h-14 flex items-center justify-center">
+            <div class="menu-icon">
+                <div class="w-6 h-0.5 bg-gray-700 mb-1.5 line1 transition-all"></div>
+                <div class="w-6 h-0.5 bg-gray-700 mb-1.5 line2 transition-all"></div>
+                <div class="w-6 h-0.5 bg-gray-700 line3 transition-all"></div>
+            </div>
+        </button>
+
+        <div id="mobileMenu" class="md:hidden mobile-menu fixed top-20 right-4 z-40 rounded-3xl p-6 w-64">
+            <div class="flex flex-col space-y-4">
+                <a href="#sobre-mi"
+                    class="mobile-menu-link text-gray-700 hover:text-purple-600 font-medium text-lg py-3 px-4 rounded-xl hover:bg-purple-50 transition">
+                    <i class="fas fa-user mr-3 text-purple-600"></i>Sobre mí
+                </a>
+                <a href="#experiencia"
+                    class="mobile-menu-link text-gray-700 hover:text-purple-600 font-medium text-lg py-3 px-4 rounded-xl hover:bg-purple-50 transition">
+                    <i class="fas fa-briefcase mr-3 text-purple-600"></i>Experiencia
+                </a>
+                <a href="#habilidades"
+                    class="mobile-menu-link text-gray-700 hover:text-purple-600 font-medium text-lg py-3 px-4 rounded-xl hover:bg-purple-50 transition">
+                    <i class="fas fa-code mr-3 text-purple-600"></i>Habilidades
+                </a>
+                <a href="#contacto"
+                    class="mobile-menu-link text-gray-700 hover:text-purple-600 font-medium text-lg py-3 px-4 rounded-xl hover:bg-purple-50 transition">
+                    <i class="fas fa-envelope mr-3 text-purple-600"></i>Contacto
+                </a>
+            </div>
+        </div>
+
         <div class="container mx-auto px-6 py-20 md:py-32 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-                <!-- Texto -->
-                <div>
-                    <p class="text-purple-600 font-semibold mb-4 text-lg">Hola, soy</p>
-                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                        Sergio Federico<br/>Rayo Rodríguez
-                    </h2>
-                    <p class="text-2xl md:text-3xl text-gray-600 mb-4 font-light">Desarrollador Senior <span class="gradient-text font-semibold">.NET</span></p>
-                    <p class="text-lg text-gray-500 mb-8">Madrid, España • 3+ años transformando ideas en código</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://www.linkedin.com/in/sergio-federico-rayo-rodriguez/" target="_blank" 
-                           class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition duration-300">
-                            <i class="fab fa-linkedin mr-2"></i>Conectar
-                        </a>
-                        <a href="#contacto" 
-                           class="px-8 py-4 bg-white text-gray-800 rounded-xl font-semibold hover:shadow-xl transition duration-300 border border-gray-200">
-                            <i class="fas fa-envelope mr-2"></i>Contacto
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Foto -->
-                <div class="flex justify-center md:justify-end">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
-                        <div class="relative p-1 bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-3xl">
-                            <img src="perfil.jpg" alt="Sergio Federico Rayo Rodríguez" 
-                                 class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-3xl shadow-2xl">
+            <div class="max-w-6xl mx-auto relative">
+                <div class="hero-aura"></div>
+                <div class="hero-glass p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span
+                                class="chip-glass inline-flex items-center gap-2 px-4 py-2 mb-5 text-sm font-semibold text-purple-700">
+                                <i class="fas fa-bolt"></i> Hola, soy
+                            </span>
+                            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                                Sergio Federico<br />Rayo Rodríguez
+                            </h2>
+                            <p class="text-2xl md:text-3xl text-gray-700 mb-4 font-light">
+                                Desarrollador Senior <span class="gradient-text font-semibold">.NET</span>
+                            </p>
+                            <p class="text-lg text-gray-600 mb-8">
+                                Madrid, España • 3+ años transformando ideas en código
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://www.linkedin.com/in/sergio-federico-rayo-rodriguez/" target="_blank"
+                                    class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition duration-300">
+                                    <i class="fab fa-linkedin mr-2"></i>Conectar
+                                </a>
+                                <a href="#contacto"
+                                    class="px-8 py-4 bg-white text-gray-800 rounded-xl font-semibold hover:shadow-xl transition duration-300 border border-gray-200">
+                                    <i class="fas fa-envelope mr-2"></i>Contacto
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center md:justify-end">
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 rounded-full blur-3xl opacity-40">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div
+                                        class="w-80 h-80 md:w-96 md:h-96 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 shadow-lg">
+                                    </div>
+                                </div>
+
+                                <img src="perfil.png" alt="Sergio Federico Rayo Rodríguez"
+                                    class="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full shadow-2xl">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
-    <!-- Sobre mí -->
+
     <section id="sobre-mi" class="py-20 md:py-32">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <h3 class="text-sm font-bold text-purple-600 mb-4 uppercase tracking-wider">Quien Soy</h3>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Sobre mí</h2>
                 <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                    <p>Desarrollador Senior especializado en el ecosistema <strong class="text-gray-900">.NET</strong>
+                        con más de 3 años de experiencia creando soluciones empresariales robustas y escalables.</p>
+                    <p>Mi pasión es transformar problemas complejos en código elegante y eficiente. Me centro en
+                        desarrollar aplicaciones que no solo funcionen, sino que destaquen por su rendimiento,
+                        mantenibilidad y experiencia de usuario excepcional.</p>
+                    <p>Desde la gestión de despliegues hasta la optimización de bases de datos, me encanta cada aspecto
+                        del desarrollo de software y el impacto que puede tener en los usuarios finales.</p>
                     <p>
-                        Desarrollador Senior especializado en el ecosistema <strong class="text-gray-900">.NET</strong> con más de 3 años de experiencia creando soluciones empresariales robustas y escalables.
+                        Además, tengo amplia experiencia en el <strong class="text-gray-900">diseño, desarrollo e
+                            implementación de APIs RESTful</strong>,
+                        garantizando seguridad, rendimiento y escalabilidad en entornos de producción.
                     </p>
-                    <p>
-                        Mi pasión es transformar problemas complejos en código elegante y eficiente. Me centro en desarrollar aplicaciones que no solo funcionen, sino que destaquen por su rendimiento, mantenibilidad y experiencia de usuario excepcional.
-                    </p>
-                    <p>
-                        Desde la gestión de despliegues hasta la optimización de bases de datos, me encanta cada aspecto del desarrollo de software y el impacto que puede tener en los usuarios finales.
-                    </p>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experiencia -->
     <section id="experiencia" class="py-20 md:py-32 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <h3 class="text-sm font-bold text-purple-600 mb-4 uppercase tracking-wider">Mi Trayectoria</h3>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-16">Experiencia Profesional</h2>
-                
+
                 <div class="space-y-12">
-                    <!-- AMURA IT -->
                     <div class="relative pl-8 border-l-2 border-purple-200 card-hover">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full"></div>
-                        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div
+                            class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full">
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
                             <div class="flex flex-wrap items-start justify-between mb-4 gap-4">
                                 <div>
                                     <h4 class="text-2xl font-bold text-gray-900 mb-2">Desarrollador Senior</h4>
                                     <p class="text-purple-600 font-semibold text-lg mb-1">AMURA IT</p>
                                     <p class="text-gray-500 text-sm">Jun 2025 - Actualidad • Madrid, España</p>
                                 </div>
-                                <span class="px-4 py-2 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full text-sm font-semibold">
-                                    Actual
-                                </span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full text-sm font-semibold">Actual</span>
                             </div>
                             <p class="text-gray-600 leading-relaxed mb-6">
-                                Desarrollo y mantenimiento de aplicaciones empresariales de alto rendimiento. Gestión integral de despliegues en múltiples entornos, resolución proactiva de incidencias y administración de arquitectura de datos con enfoque en tiempo real.
+                                Desarrollo y mantenimiento de aplicaciones empresariales de alto rendimiento. Gestión
+                                integral de despliegues en múltiples entornos, resolución proactiva de incidencias y
+                                administración de arquitectura de datos con enfoque en tiempo real.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">C#</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">.NET Core</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Blazor</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Entity Framework</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">MAUI</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">SQL Server</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Azure DevOps</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">SignalR</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">.NET
+                                    Core</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Blazor</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">C#</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Desarrollo
+                                    e implementación de APIs</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">DevExpress</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Entity
+                                    Framework</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">MAUI</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">MVC</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">SignalR</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">SQL
+                                    Server</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-lg text-sm font-medium">Azure
+                                    DevOps</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- UNATEC -->
                     <div class="relative pl-8 border-l-2 border-purple-200 card-hover">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full"></div>
-                        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div
+                            class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full">
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
                             <div class="mb-4">
                                 <h4 class="text-2xl font-bold text-gray-900 mb-2">Desarrollador de Software</h4>
                                 <p class="text-purple-600 font-semibold text-lg mb-1">Unatec</p>
                                 <p class="text-gray-500 text-sm">Dic 2024 - May 2025 • 6 meses • Madrid, España</p>
                             </div>
                             <p class="text-gray-600 leading-relaxed mb-6">
-                                Desarrollo full-stack para el sector energético combinando backend robusto (.NET, SQL) con interfaces modernas (Vue.js). Implementación de soluciones móviles multiplataforma con Xamarin, priorizando siempre la experiencia del usuario y la estabilidad del sistema.
+                                Desarrollo full-stack para el sector energético combinando backend robusto (.NET, SQL)
+                                con interfaces modernas (Vue.js). Implementación de soluciones móviles multiplataforma
+                                con Xamarin, priorizando siempre la experiencia del usuario y la estabilidad del
+                                sistema.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">.NET Framework</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">C#</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">MySQL</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">SQL Server</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Azure</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Vue.js</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Xamarin</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">.NET
+                                    Framework</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Arquitectura
+                                    Hexagonal DDD</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Azure</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">C#</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">DevExpress</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Entity
+                                    Framework</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">MySQL</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">SQL
+                                    Server</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Vue.js</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 rounded-lg text-sm font-medium">Xamarin</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ABAI - Jefe auxiliar -->
                     <div class="relative pl-8 border-l-2 border-purple-200 card-hover">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full"></div>
-                        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div
+                            class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full">
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
                             <div class="mb-4">
                                 <h4 class="text-2xl font-bold text-gray-900 mb-2">Jefe Auxiliar de Proyecto</h4>
                                 <p class="text-purple-600 font-semibold text-lg mb-1">Abai</p>
                                 <p class="text-gray-500 text-sm">Jun 2024 - Dic 2024 • 7 meses • España</p>
                             </div>
                             <p class="text-gray-600 leading-relaxed mb-6">
-                                Liderazgo técnico del proyecto Armatum, combinando gestión de equipo con desarrollo activo. Coordinación de sprints, asignación estratégica de tareas y garantía de calidad en cada entrega, manteniendo un equilibrio perfecto entre el liderazgo y el código.
+                                Liderazgo técnico del proyecto Armatum, combinando gestión de equipo con desarrollo
+                                activo. Coordinación de sprints, asignación estratégica de tareas y garantía de calidad
+                                en cada entrega, manteniendo un equilibrio perfecto entre el liderazgo y el código.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-800 rounded-lg text-sm font-medium">Liderazgo técnico</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-800 rounded-lg text-sm font-medium">Gestión de proyectos</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-800 rounded-lg text-sm font-medium">Coordinación de equipos</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-800 rounded-lg text-sm font-medium">Coordinación
+                                    de equipos</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-800 rounded-lg text-sm font-medium">Gestión
+                                    de proyectos</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-800 rounded-lg text-sm font-medium">Liderazgo
+                                    técnico</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ABAI - Desarrollador -->
                     <div class="relative pl-8 border-l-2 border-purple-200 card-hover">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-violet-500 to-purple-500 rounded-full"></div>
-                        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div
+                            class="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-br from-violet-500 to-purple-500 rounded-full">
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100">
                             <div class="mb-4">
                                 <h4 class="text-2xl font-bold text-gray-900 mb-2">Desarrollador</h4>
                                 <p class="text-purple-600 font-semibold text-lg mb-1">Abai</p>
                                 <p class="text-gray-500 text-sm">Jun 2022 - Jun 2024 • 2 años 1 mes • Madrid, España</p>
                             </div>
                             <p class="text-gray-600 leading-relaxed mb-6">
-                                Desarrollo full-stack en arquitectura MVC para el proyecto Armatum. Implementación de soluciones end-to-end con .NET C#, cumpliendo objetivos de sprint mientras se mantenía el enfoque en código limpio, escalable y alineado con las necesidades del negocio.
+                                Desarrollo full-stack en arquitectura MVC para el proyecto Armatum. Implementación de
+                                soluciones end-to-end con .NET C#, cumpliendo objetivos de sprint mientras se mantenía
+                                el enfoque en código limpio, escalable y alineado con las necesidades del negocio.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">.NET C#</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">MVC</span>
-                                <span class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">Full Stack</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">.NET
+                                    C#</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">Desarrollo
+                                    e implementación de APIs</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">Entity
+                                    Framework</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">Full
+                                    Stack</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">JavaScript</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">MVC</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">Node
+                                    JS</span>
+                                <span
+                                    class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 rounded-lg text-sm font-medium">Python
+                                    / Selenium</span>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Habilidades -->
     <section id="habilidades" class="py-20 md:py-32">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <h3 class="text-sm font-bold text-purple-600 mb-4 uppercase tracking-wider">Stack Tecnológico</h3>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-16">Habilidades & Tecnologías</h2>
-                
+
                 <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Backend -->
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 card-hover">
                         <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-server text-white text-xl"></i>
                             </div>
                             <h4 class="text-2xl font-bold text-gray-900">Backend</h4>
                         </div>
                         <div class="space-y-5">
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">C# / .NET Core</span>
-                                    <span class="text-purple-600 font-bold">Experto</span>
-                                </div>
+                                <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">C# /
+                                        .NET Core</span><span class="text-purple-600 font-bold">Avanzado</span></div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full skill-bar" style="width: 95%"></div>
+                                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full skill-bar"
+                                        style="width:85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">.NET
+                                        Framework</span><span class="text-purple-600 font-bold">Avanzado</span></div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full skill-bar"
+                                        style="width:85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">Entity
+                                        Framework</span><span class="text-purple-600 font-bold">Avanzado</span></div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full skill-bar"
+                                        style="width:82%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2"><span
+                                        class="text-gray-700 font-semibold">SignalR</span><span
+                                        class="text-purple-600 font-bold">Intermedio</span></div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full skill-bar"
+                                        style="width:70%"></div>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">.NET Framework</span>
-                                    <span class="text-purple-600 font-bold">Experto</span>
-                                </div>
-                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full skill-bar" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">Entity Framework</span>
+                                    <span class="text-gray-700 font-semibold">API REST / Web API</span>
                                     <span class="text-purple-600 font-bold">Avanzado</span>
                                 </div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full skill-bar" style="width: 85%"></div>
+                                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full skill-bar"
+                                        style="width:85%"></div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">SignalR</span>
-                                    <span class="text-purple-600 font-bold">Avanzado</span>
-                                </div>
-                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full skill-bar" style="width: 80%"></div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
-                    <!-- Bases de datos -->
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 card-hover">
                         <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mr-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-database text-white text-xl"></i>
                             </div>
                             <h4 class="text-2xl font-bold text-gray-900">Bases de Datos</h4>
                         </div>
                         <div class="space-y-5">
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">SQL Server</span>
-                                    <span class="text-emerald-600 font-bold">Experto</span>
-                                </div>
+                                <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">SQL
+                                        Server</span><span class="text-emerald-600 font-bold">Avanzado</span></div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full skill-bar" style="width: 95%"></div>
+                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full skill-bar"
+                                        style="width:85%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">MySQL</span>
-                                    <span class="text-emerald-600 font-bold">Avanzado</span>
-                                </div>
+                                <div class="flex justify-between mb-2"><span
+                                        class="text-gray-700 font-semibold">MySQL</span><span
+                                        class="text-emerald-600 font-bold">Avanzado</span></div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full skill-bar" style="width: 85%"></div>
+                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full skill-bar"
+                                        style="width:75%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Frontend -->
+
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 card-hover">
                         <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mr-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-code text-white text-xl"></i>
                             </div>
                             <h4 class="text-2xl font-bold text-gray-900">Frontend</h4>
                         </div>
+
                         <div class="space-y-5">
                             <div>
                                 <div class="flex justify-between mb-2">
@@ -313,107 +551,145 @@
                                     <span class="text-pink-600 font-bold">Avanzado</span>
                                 </div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full skill-bar" style="width: 85%"></div>
+                                    <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full skill-bar"
+                                        style="width:85%"></div>
                                 </div>
                             </div>
+
                             <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="text-gray-700 font-semibold">Vue.js</span>
+                                    <span class="text-pink-600 font-bold">Básico</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full skill-bar"
+                                        style="width:20%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 font-semibold">Bootstrap</span>
+                                    <span class="text-pink-600 font-bold">Avanzado</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full skill-bar"
+                                        style="width:80%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 font-semibold">Tailwind CSS</span>
                                     <span class="text-pink-600 font-bold">Intermedio</span>
                                 </div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full skill-bar" style="width: 65%"></div>
+                                    <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full skill-bar"
+                                        style="width:60%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mobile & Cloud -->
+
+
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 card-hover">
                         <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-mobile-alt text-white text-xl"></i>
                             </div>
                             <h4 class="text-2xl font-bold text-gray-900">Mobile & Cloud</h4>
                         </div>
                         <div class="space-y-5">
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">MAUI</span>
-                                    <span class="text-violet-600 font-bold">Avanzado</span>
-                                </div>
+                                <div class="flex justify-between mb-2"><span
+                                        class="text-gray-700 font-semibold">MAUI</span><span
+                                        class="text-violet-600 font-bold">Avanzado</span></div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full skill-bar" style="width: 85%"></div>
+                                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full skill-bar"
+                                        style="width:85%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">Azure DevOps</span>
-                                    <span class="text-violet-600 font-bold">Avanzado</span>
-                                </div>
+                                <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">Azure
+                                        DevOps</span><span class="text-violet-600 font-bold">Avanzado</span></div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full skill-bar" style="width: 80%"></div>
+                                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full skill-bar"
+                                        style="width:80%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700 font-semibold">Xamarin</span>
-                                    <span class="text-violet-600 font-bold">Intermedio</span>
-                                </div>
+                                <div class="flex justify-between mb-2"><span
+                                        class="text-gray-700 font-semibold">Xamarin</span><span
+                                        class="text-violet-600 font-bold">Intermedio</span></div>
                                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full skill-bar" style="width: 70%"></div>
+                                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full skill-bar"
+                                        style="width:40%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- Otras tecnologías -->
+
                 <div class="mt-12 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-2xl text-white">
                     <h4 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fas fa-laptop-code mr-3"></i>
                         Otras Tecnologías & Herramientas
                     </h4>
                     <div class="flex flex-wrap gap-3">
-                        <span class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Java</span>
-                        <span class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Android Studio</span>
-                        <span class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">MVC</span>
-                        <span class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Visual Studio</span>
-                        <span class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Git</span>
-                        <span class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Azure</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Java</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Android
+                            Studio</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">MVC</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Visual
+                            Studio</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Git</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">Azure</span>
+                        <span
+                            class="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition">IIS</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-20 md:py-32 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white relative overflow-hidden">
+    <section id="contacto"
+        class="py-20 md:py-32 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
             <div class="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl"></div>
             <div class="absolute bottom-20 right-20 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl"></div>
         </div>
-        
+
         <div class="container mx-auto px-6 text-center relative z-10">
             <h3 class="text-sm font-bold text-purple-300 mb-4 uppercase tracking-wider">Trabajemos Juntos</h3>
             <h2 class="text-4xl md:text-6xl font-bold mb-6">¿Hablamos?</h2>
             <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-gray-300 leading-relaxed">
-                Estoy abierto a nuevas oportunidades y colaboraciones. Si buscas un desarrollador .NET comprometido con la excelencia, conectemos.
+                Actualmente no estoy en búsqueda activa, pero me encantaría conectar y compartir ideas sobre .NET y
+                arquitectura de software.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.linkedin.com/in/sergio-federico-rayo-rodriguez/" target="_blank" 
-                   class="px-10 py-5 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition duration-300 text-lg">
+                <a href="https://www.linkedin.com/in/sergio-federico-rayo-rodriguez/" target="_blank"
+                    class="px-10 py-5 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition duration-300 text-lg">
                     <i class="fab fa-linkedin mr-2 text-purple-600"></i>LinkedIn
                 </a>
-                <a href="mailto:sergio.federico.rayo@gmail.com" 
-                   class="px-10 py-5 bg-purple-600 text-white rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition duration-300 text-lg">
+                <a href="mailto:sergio.federico.rayo@gmail.com"
+                    class="px-10 py-5 bg-purple-600 text-white rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition duration-300 text-lg">
                     <i class="fas fa-envelope mr-2"></i>Email
                 </a>
             </div>
+            <p class="mt-8 text-gray-400">sergio.federico.rayo@gmail.com</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -429,24 +705,39 @@
     </footer>
 
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            mobileMenu?.classList.toggle('active');
+            menuIcon?.classList.toggle('active');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu?.classList.remove('active');
+                menuIcon?.classList.remove('active');
             });
         });
 
-        // Animación de las barras de habilidades al hacer scroll
-        const observerOptions = {
-            threshold: 0.5
-        };
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu?.contains(e.target) && !mobileMenuBtn?.contains(e.target)) {
+                mobileMenu?.classList.remove('active');
+                menuIcon?.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -456,12 +747,11 @@
                     });
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
 
         const skillsSection = document.querySelector('#habilidades');
-        if (skillsSection) {
-            observer.observe(skillsSection);
-        }
+        if (skillsSection) observer.observe(skillsSection);
     </script>
 </body>
+
 </html>
