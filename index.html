@@ -5,67 +5,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sergio Federico Rayo Rodríguez - .NET Developer</title>
+    <meta name="description"
+        content="Senior .NET developer in Madrid. 4+ years building APIs, Blazor, MAUI, and SQL Server solutions." />
+    <meta name="theme-color" content="#b45309" />
+    <link rel="canonical" href="https://portfolio-beta-murex-wmnylgwjet.vercel.app/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-    <!-- Tailwind & Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sergio Federico Rayo Rodríguez - .NET Developer" />
+    <meta property="og:description"
+        content="Senior .NET developer in Madrid. 4+ years building APIs, Blazor, MAUI, and SQL Server solutions." />
+    <meta property="og:url" content="https://portfolio-beta-murex-wmnylgwjet.vercel.app/" />
+    <meta property="og:image"
+        content="https://portfolio-beta-murex-wmnylgwjet.vercel.app/perfil.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sergio Federico Rayo Rodríguez - .NET Developer" />
+    <meta name="twitter:description"
+        content="Senior .NET developer in Madrid. 4+ years building APIs, Blazor, MAUI, and SQL Server solutions." />
+    <meta name="twitter:image"
+        content="https://portfolio-beta-murex-wmnylgwjet.vercel.app/perfil.png" />
+
+    <link rel="stylesheet" href="tailwind.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
-
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Custom Script -->
     <script defer src="script.js"></script>
+    <noscript>
+        <style>
+            .skill-bar { width: var(--w, 0); }
+            .mobile-menu { display: none; }
+        </style>
+    </noscript>
 </head>
 
 
 <body class="bg-gradient-to-br from-stone-50 via-stone-100 to-amber-50">
+    <a href="#about" class="skip-link">Skip to content</a>
     <header class="relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 opacity-10"></div>
 
-        <nav class="hidden md:block absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto">
+        <nav class="hidden md:block absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto" aria-label="Primary">
             <div class="nav-glass rounded-full px-8 py-4">
                 <div class="flex justify-center items-center space-x-8 text-base">
                     <a href="#about" class="text-stone-700 hover:text-amber-700 font-medium px-3">About Me</a>
                     <a href="#experience" class="text-stone-700 hover:text-amber-700 font-medium px-3">Experience</a>
                     <a href="#skills" class="text-stone-700 hover:text-amber-700 font-medium px-3">Skills</a>
+                    <a href="#projects" class="text-stone-700 hover:text-amber-700 font-medium px-3">Projects</a>
                     <a href="#contact" class="text-stone-700 hover:text-amber-700 font-medium px-3">Contact</a>
                 </div>
             </div>
         </nav>
 
-        <button id="mobileMenuBtn"
-            class="md:hidden fixed top-4 right-4 z-50 mobile-menu-button rounded-full p-4 w-14 h-14 flex items-center justify-center">
-            <div class="menu-icon">
-                <div class="w-6 h-0.5 bg-stone-700 mb-1.5 line1 transition-all"></div>
-                <div class="w-6 h-0.5 bg-stone-700 mb-1.5 line2 transition-all"></div>
-                <div class="w-6 h-0.5 bg-stone-700 line3 transition-all"></div>
-            </div>
+        <button type="button" id="mobileMenuBtn"
+            class="md:hidden fixed top-4 right-4 z-50 mobile-menu-button rounded-full p-4 w-14 h-14 flex items-center justify-center"
+            aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="menu-icon" aria-hidden="true">
+                <span class="block w-6 h-0.5 bg-stone-700 mb-1.5 line1 transition-all"></span>
+                <span class="block w-6 h-0.5 bg-stone-700 mb-1.5 line2 transition-all"></span>
+                <span class="block w-6 h-0.5 bg-stone-700 line3 transition-all"></span>
+            </span>
         </button>
 
-        <div id="mobileMenu" class="md:hidden mobile-menu fixed top-20 right-4 z-40 rounded-3xl p-6 w-64">
-            <div class="flex flex-col space-y-4">
+        <div id="mobileMenu" class="md:hidden mobile-menu fixed top-20 right-4 z-40 rounded-3xl p-6 w-64"
+            aria-hidden="true">
+            <nav class="flex flex-col space-y-4" aria-label="Mobile">
                 <a href="#about"
                     class="mobile-menu-link text-stone-700 hover:text-amber-700 font-medium text-lg py-3 px-4 rounded-xl hover:bg-amber-50 transition">
-                    <i class="fas fa-user mr-3 text-amber-700"></i>About Me
+                    <i class="fas fa-user mr-3 text-amber-700" aria-hidden="true"></i>About Me
                 </a>
                 <a href="#experience"
                     class="mobile-menu-link text-stone-700 hover:text-amber-700 font-medium text-lg py-3 px-4 rounded-xl hover:bg-amber-50 transition">
-                    <i class="fas fa-briefcase mr-3 text-amber-700"></i>Experience
+                    <i class="fas fa-briefcase mr-3 text-amber-700" aria-hidden="true"></i>Experience
                 </a>
                 <a href="#skills"
                     class="mobile-menu-link text-stone-700 hover:text-amber-700 font-medium text-lg py-3 px-4 rounded-xl hover:bg-amber-50 transition">
-                    <i class="fas fa-code mr-3 text-amber-700"></i>Skills
+                    <i class="fas fa-code mr-3 text-amber-700" aria-hidden="true"></i>Skills
+                </a>
+                <a href="#projects"
+                    class="mobile-menu-link text-stone-700 hover:text-amber-700 font-medium text-lg py-3 px-4 rounded-xl hover:bg-amber-50 transition">
+                    <i class="fas fa-folder-open mr-3 text-amber-700" aria-hidden="true"></i>Projects
                 </a>
                 <a href="#contact"
                     class="mobile-menu-link text-stone-700 hover:text-amber-700 font-medium text-lg py-3 px-4 rounded-xl hover:bg-amber-50 transition">
-                    <i class="fas fa-envelope mr-3 text-amber-700"></i>Contact
+                    <i class="fas fa-envelope mr-3 text-amber-700" aria-hidden="true"></i>Contact
                 </a>
-            </div>
+            </nav>
         </div>
 
         <div class="container mx-auto px-6 py-20 md:py-32 relative z-10">
@@ -78,23 +104,24 @@
                                 class="chip-glass inline-flex items-center gap-2 px-4 py-2 mb-5 text-sm font-semibold text-amber-800">
                                 <i class="fas fa-bolt"></i> Hi, I'm
                             </span>
-                            <h2 class="text-5xl md:text-6xl font-bold text-stone-900 mb-6 leading-tight">
+                            <h1 class="text-5xl md:text-6xl font-bold text-stone-900 mb-6 leading-tight">
                                 Sergio Federico<br />Rayo Rodríguez
-                            </h2>
+                            </h1>
                             <p class="text-2xl md:text-3xl text-stone-700 mb-4 font-light">
                                 Senior <span class="gradient-text font-semibold">.NET</span> Developer
                             </p>
                             <p class="text-lg text-stone-600 mb-8">
-                                Madrid, Spain • 3+ years turning ideas into code
+                                Madrid, Spain • 4+ years turning ideas into code
                             </p>
                             <div class="flex flex-wrap gap-4">
                                 <a href="https://www.linkedin.com/in/sergio-federico-rayo-rodriguez/" target="_blank"
+                                    rel="noopener noreferrer"
                                     class="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-700 text-white rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition duration-300">
-                                    <i class="fab fa-linkedin mr-2"></i>Connect
+                                    <i class="fab fa-linkedin mr-2" aria-hidden="true"></i>Connect
                                 </a>
                                 <a href="#contact"
                                     class="px-8 py-4 bg-white text-stone-800 rounded-xl font-semibold hover:shadow-xl transition duration-300 border border-stone-200">
-                                    <i class="fas fa-envelope mr-2"></i>Contact
+                                    <i class="fas fa-envelope mr-2" aria-hidden="true"></i>Contact
                                 </a>
                             </div>
                         </div>
@@ -112,22 +139,24 @@
                                 </div>
 
                                 <img src="perfil.png" alt="Sergio Federico Rayo Rodríguez"
+                                    width="384" height="384" decoding="async"
                                     class="relative w-80 h-80 md:w-96 md:h-96 object-cover object-[center_20%] rounded-full shadow-2xl">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </header>
 
     <section id="about" class="py-20 md:py-32">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <h3 class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">Who I Am</h3>
+                <p class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">Who I Am</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-8">About Me</h2>
                 <div class="space-y-6 text-lg text-stone-600 leading-relaxed">
                     <p>Senior developer specialized in the <strong class="text-stone-900">.NET</strong> ecosystem with
-                        over 3 years of experience building robust, scalable business solutions.</p>
+                        over 4 years of experience building robust, scalable business solutions.</p>
                     <p>I'm passionate about turning complex problems into elegant, efficient code. I focus on
                         developing applications that not only work, but stand out for performance, maintainability, and
                         an exceptional user experience.</p>
@@ -146,7 +175,7 @@
     <section id="experience" class="py-20 md:py-32 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
-                <h3 class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">My Journey</h3>
+                <p class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">My Journey</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-16">Professional Experience</h2>
 
                 <div class="space-y-12">
@@ -328,11 +357,11 @@
     <section id="skills" class="py-20 md:py-32">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
-                <h3 class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">Tech Stack</h3>
+                <p class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">Tech Stack</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-16">Skills & Technologies</h2>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Backend (indigo → fuchsia) -->
+                    <!-- Backend -->
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-stone-100 card-hover">
                         <div class="flex items-center mb-6">
                             <div
@@ -349,7 +378,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-full skill-bar"
-                                        style="width:85%"></div>
+                                        data-width="85" style="--w: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -359,7 +388,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-full skill-bar"
-                                        style="width:85%"></div>
+                                        data-width="85" style="--w: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -369,7 +398,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-full skill-bar"
-                                        style="width:82%"></div>
+                                        data-width="82" style="--w: 82%"></div>
                                 </div>
                             </div>
                             <div>
@@ -379,7 +408,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-full skill-bar"
-                                        style="width:70%"></div>
+                                        data-width="70" style="--w: 70%"></div>
                                 </div>
                             </div>
                             <div>
@@ -389,13 +418,13 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-full skill-bar"
-                                        style="width:85%"></div>
+                                        data-width="85" style="--w: 85%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Databases (emerald → cyan) -->
+                    <!-- Databases -->
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-stone-100 card-hover">
                         <div class="flex items-center mb-6">
                             <div
@@ -412,7 +441,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-orange-500 to-amber-600 rounded-full skill-bar"
-                                        style="width:85%"></div>
+                                        data-width="85" style="--w: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -422,13 +451,13 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-orange-500 to-amber-600 rounded-full skill-bar"
-                                        style="width:75%"></div>
+                                        data-width="75" style="--w: 75%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Frontend (rose → amber) -->
+                    <!-- Frontend -->
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-stone-100 card-hover">
                         <div class="flex items-center mb-6">
                             <div
@@ -446,18 +475,18 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-rose-500 to-orange-500 rounded-full skill-bar"
-                                        style="width:85%"></div>
+                                        data-width="85" style="--w: 85%"></div>
                                 </div>
                             </div>
 
                             <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="text-stone-700 font-semibold">Vue.js</span>
-                                    <span class="text-orange-700 font-bold">Beginner</span>
+                                    <span class="text-orange-700 font-bold">Intermediate</span>
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-rose-500 to-orange-500 rounded-full skill-bar"
-                                        style="width:20%"></div>
+                                        data-width="55" style="--w: 55%"></div>
                                 </div>
                             </div>
 
@@ -468,7 +497,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-rose-500 to-orange-500 rounded-full skill-bar"
-                                        style="width:80%"></div>
+                                        data-width="80" style="--w: 80%"></div>
                                 </div>
                             </div>
 
@@ -479,13 +508,13 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-rose-500 to-orange-500 rounded-full skill-bar"
-                                        style="width:60%"></div>
+                                        data-width="60" style="--w: 60%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mobile & Cloud (violet → sky) -->
+                    <!-- Mobile & Cloud -->
                     <div class="bg-white rounded-2xl p-8 shadow-xl border border-stone-100 card-hover">
                         <div class="flex items-center mb-6">
                             <div
@@ -502,7 +531,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-600 to-yellow-500 rounded-full skill-bar"
-                                        style="width:85%"></div>
+                                        data-width="85" style="--w: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -512,7 +541,7 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-600 to-yellow-500 rounded-full skill-bar"
-                                        style="width:80%"></div>
+                                        data-width="80" style="--w: 80%"></div>
                                 </div>
                             </div>
                             <div>
@@ -522,19 +551,18 @@
                                 </div>
                                 <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
                                     <div class="h-full bg-gradient-to-r from-amber-600 to-yellow-500 rounded-full skill-bar"
-                                        style="width:40%"></div>
+                                        data-width="40" style="--w: 40%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                                <!-- Other Technologies & Tools -->
                 <div class="mt-12 bg-gradient-to-br from-stone-900 to-stone-800 rounded-2xl p-8 shadow-2xl text-white">
-                    <h4 class="text-2xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-laptop-code mr-3"></i>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-laptop-code mr-3" aria-hidden="true"></i>
                         Other Technologies & Tools
-                    </h4>
+                    </h3>
                     <div class="flex flex-wrap gap-3">
                         <span
                             class="px-5 py-3 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-sm rounded-xl font-semibold hover:from-white/25 hover:to-white/10 transition">Java</span>
@@ -558,6 +586,50 @@
         </div>
     </section>
 
+    <section id="projects" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <p class="text-sm font-bold text-amber-700 mb-4 uppercase tracking-wider">Selected Work</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Projects</h2>
+                <p class="text-lg text-stone-600 mb-12 max-w-3xl">
+                    Personal repositories on GitHub. Public work alongside the enterprise systems I ship at my day job.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <a href="https://github.com/sfedev/DocGen-releases" target="_blank" rel="noopener noreferrer"
+                        class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-8 shadow-lg border border-stone-100 card-hover block">
+                        <h3 class="text-2xl font-bold text-stone-900 mb-2">DocGen</h3>
+                        <p class="text-amber-700 font-semibold text-sm mb-4">Releases</p>
+                        <p class="text-stone-600 leading-relaxed">Downloads and release notes for DocGen.</p>
+                    </a>
+                    <a href="https://github.com/sfedev/IDE-DOTNET" target="_blank" rel="noopener noreferrer"
+                        class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-8 shadow-lg border border-stone-100 card-hover block">
+                        <h3 class="text-2xl font-bold text-stone-900 mb-2">IDE-DOTNET</h3>
+                        <p class="text-amber-700 font-semibold text-sm mb-4">TypeScript</p>
+                        <p class="text-stone-600 leading-relaxed">TypeScript repository on GitHub.</p>
+                    </a>
+                    <a href="https://github.com/sfedev/JSForge" target="_blank" rel="noopener noreferrer"
+                        class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-8 shadow-lg border border-stone-100 card-hover block">
+                        <h3 class="text-2xl font-bold text-stone-900 mb-2">JSForge</h3>
+                        <p class="text-amber-700 font-semibold text-sm mb-4">TypeScript</p>
+                        <p class="text-stone-600 leading-relaxed">TypeScript repository on GitHub.</p>
+                    </a>
+                    <a href="https://github.com/sfedev/Planner" target="_blank" rel="noopener noreferrer"
+                        class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-8 shadow-lg border border-stone-100 card-hover block">
+                        <h3 class="text-2xl font-bold text-stone-900 mb-2">Planner</h3>
+                        <p class="text-amber-700 font-semibold text-sm mb-4">JavaScript</p>
+                        <p class="text-stone-600 leading-relaxed">JavaScript repository on GitHub.</p>
+                    </a>
+                    <a href="https://github.com/sfedev/Roadmap" target="_blank" rel="noopener noreferrer"
+                        class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-8 shadow-lg border border-stone-100 card-hover block md:col-span-2">
+                        <h3 class="text-2xl font-bold text-stone-900 mb-2">Roadmap</h3>
+                        <p class="text-amber-700 font-semibold text-sm mb-4">C#</p>
+                        <p class="text-stone-600 leading-relaxed">C# repository on GitHub.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section id="contact"
         class="py-20 md:py-32 bg-gradient-to-br from-stone-900 via-amber-950 to-stone-900 text-white relative overflow-hidden">
@@ -567,7 +639,7 @@
         </div>
 
         <div class="container mx-auto px-6 text-center relative z-10">
-            <h3 class="text-sm font-bold text-amber-300 mb-4 uppercase tracking-wider">Let's Work Together</h3>
+            <p class="text-sm font-bold text-amber-300 mb-4 uppercase tracking-wider">Let's Work Together</p>
             <h2 class="text-4xl md:text-6xl font-bold mb-6">Shall We Talk?</h2>
             <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-stone-300 leading-relaxed">
                 I’m not currently seeking new opportunities, but I’d love to connect and share ideas about .NET and
@@ -575,12 +647,13 @@
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://www.linkedin.com/in/sergio-federico-rayo-rodriguez/" target="_blank"
+                    rel="noopener noreferrer"
                     class="px-10 py-5 bg-white text-stone-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition duration-300 text-lg">
-                    <i class="fab fa-linkedin mr-2 text-amber-700"></i>LinkedIn
+                    <i class="fab fa-linkedin mr-2 text-amber-700" aria-hidden="true"></i>LinkedIn
                 </a>
                 <a href="mailto:sergio.federico.rayo@gmail.com"
                     class="px-10 py-5 bg-amber-600 text-white rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition duration-300 text-lg">
-                    <i class="fas fa-envelope mr-2"></i>Email
+                    <i class="fas fa-envelope mr-2" aria-hidden="true"></i>Email
                 </a>
             </div>
             <p class="mt-8 text-stone-400">sergio.federico.rayo@gmail.com</p>
@@ -595,7 +668,7 @@
                     <p class="text-sm mt-1">Senior .NET Developer • Madrid, Spain</p>
                 </div>
                 <div class="text-sm">
-                    <p>&copy; 2025 All rights reserved</p>
+                    <p>&copy; 2026 All rights reserved</p>
                 </div>
             </div>
         </div>
